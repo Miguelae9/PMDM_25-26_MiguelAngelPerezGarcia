@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:relacion_ejercicios_tema1/screens/menu_lateral.dart'; 
 
 class CincoIconosFila extends StatelessWidget {
   const CincoIconosFila({super.key});
@@ -10,6 +11,10 @@ class CincoIconosFila extends StatelessWidget {
         // Barra superior
         title: Text("5 Iconos en Fila"), // Título de la App Bar
         backgroundColor: const Color.fromARGB(255, 241, 78, 119),
+      ),
+      drawer: const Drawer(
+        backgroundColor:  Color.fromARGB(255, 16, 1, 100),
+        child: MenuLateral(),
       ),
       backgroundColor: const Color.fromARGB(255, 255, 122, 155),
       body: Center(

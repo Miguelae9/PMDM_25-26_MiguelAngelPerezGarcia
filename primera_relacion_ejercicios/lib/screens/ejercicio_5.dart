@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:relacion_ejercicios_tema1/screens/menu_lateral.dart'; 
 
 class CincoImagenesColumna extends StatelessWidget {
   const CincoImagenesColumna({super.key});
@@ -14,6 +15,10 @@ class CincoImagenesColumna extends StatelessWidget {
           style: TextStyle(color: const Color.fromARGB(255, 202, 165, 52)),
         ),
         backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+      ),
+      drawer: const Drawer(
+        backgroundColor:  Color.fromARGB(255, 16, 1, 100),
+        child: MenuLateral(),
       ),
       body: SingleChildScrollView(
         // Permite hacer scroll si el contenido excede la pantalla (buscado en internet)

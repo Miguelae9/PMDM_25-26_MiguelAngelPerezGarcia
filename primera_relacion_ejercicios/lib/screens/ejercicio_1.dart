@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart'; // Importa la librería para usar fuentes de Google Fonts
+import 'package:relacion_ejercicios_tema1/screens/menu_lateral.dart';
 
 class InfomacionPersonal extends StatelessWidget {
   const InfomacionPersonal({super.key});
@@ -16,6 +17,10 @@ class InfomacionPersonal extends StatelessWidget {
               GoogleFonts.zenKurenaido(), // Aplica una fuente personalizada al título
         ),
         backgroundColor: const Color.fromARGB(255, 50, 159, 248),
+      ),
+      drawer: const Drawer(
+        backgroundColor:  Color.fromARGB(255, 16, 1, 100),
+        child: MenuLateral(),
       ),
       body: Center(
         // Centra el widget hijo

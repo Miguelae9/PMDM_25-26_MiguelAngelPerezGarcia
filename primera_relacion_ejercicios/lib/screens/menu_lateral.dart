@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:relacion_ejercicios_tema1/screens/cinco_iconos_fila.dart';
-import 'package:relacion_ejercicios_tema1/screens/cinco_imagenes_columna.dart';
-import 'package:relacion_ejercicios_tema1/screens/foto_nombre.dart';
-import 'package:relacion_ejercicios_tema1/screens/tres_fotos_columnas.dart';
-import 'package:relacion_ejercicios_tema1/screens/infomacion_personal.dart';
+import 'package:relacion_ejercicios_tema1/screens/ejercicio_4.dart';
+import 'package:relacion_ejercicios_tema1/screens/ejercicio_5.dart';
+import 'package:relacion_ejercicios_tema1/screens/ejercicio_2.dart';
+import 'package:relacion_ejercicios_tema1/screens/ejercicio_3.dart';
+import 'package:relacion_ejercicios_tema1/screens/ejercicio_1.dart';
+import 'package:relacion_ejercicios_tema1/screens/home_screen.dart';
 
 // La clase representa el contenido del menú lateral (Drawer)
 class MenuLateral extends StatelessWidget {
@@ -34,6 +35,23 @@ class MenuLateral extends StatelessWidget {
               ),
               fit: BoxFit.cover,
             ),
+          ),
+        ),
+
+        Ink(
+          // Widget para aplicar color de fondo y efectos táctiles
+          color: const Color.fromARGB(255, 223, 62, 245),
+          child: ListTile(
+            title: const Text("Inicio"),
+            onTap: () {
+              Navigator.of(context).pop(); // Cierra el menú lateral
+              Navigator.of(context).push(
+                // Navega a la nueva pantalla
+                MaterialPageRoute(
+                  builder: (BuildContext context) => const MyApp(),
+                ),
+              );
+            },
           ),
         ),
 

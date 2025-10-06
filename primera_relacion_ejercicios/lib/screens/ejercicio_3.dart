@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:relacion_ejercicios_tema1/screens/menu_lateral.dart'; 
 
 class TresFotosColumnas extends StatelessWidget {
   const TresFotosColumnas({super.key});
@@ -11,6 +12,10 @@ class TresFotosColumnas extends StatelessWidget {
         // Barra superior
         title: Text("Tres Imágenes en Miniatura en Columa"), // Título
         backgroundColor: const Color.fromARGB(255, 241, 175, 75),
+      ),
+      drawer: const Drawer(
+        backgroundColor:  Color.fromARGB(255, 16, 1, 100),
+        child: MenuLateral(),
       ),
       backgroundColor: const Color.fromARGB(255, 245, 195, 121),
       body: Center(

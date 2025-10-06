@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:relacion_ejercicios_tema1/screens/menu_lateral.dart'; 
 
 class FotoNombre extends StatelessWidget {
   const FotoNombre({super.key});
@@ -10,6 +11,10 @@ class FotoNombre extends StatelessWidget {
         // Barra superior
         title: Text("Foto y Nombre"), // Título de la App Bar
         backgroundColor: const Color.fromARGB(255, 167, 247, 241),
+      ),
+      drawer: const Drawer(
+        backgroundColor:  Color.fromARGB(255, 16, 1, 100),
+        child: MenuLateral(),
       ),
       body: Center(
         // Centra el widget hijo
