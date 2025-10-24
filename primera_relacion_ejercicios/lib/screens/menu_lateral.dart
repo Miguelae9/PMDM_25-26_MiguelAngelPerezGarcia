@@ -7,6 +7,8 @@ import 'package:relacion_ejercicios_tema1/screens/ejercicio_3.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_1.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_6.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_7.dart';
+import 'package:relacion_ejercicios_tema1/screens/ejercicio_8.dart';
+import 'package:relacion_ejercicios_tema1/screens/ejercicio_9.dart';
 import 'package:relacion_ejercicios_tema1/screens/home_screen.dart';
 
 // La clase representa el contenido del menú lateral (Drawer)
@@ -19,7 +21,7 @@ class MenuLateral extends StatelessWidget {
     return ListView(
       padding: EdgeInsets.zero,
       children: <Widget>[
-        const UserAccountsDrawerHeader(
+        UserAccountsDrawerHeader(
           // Encabezado del menú con información de usuario
           accountName: Text(
             "Miguel Ángel Pérez García",
@@ -178,6 +180,43 @@ class MenuLateral extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (BuildContext context) =>
                       const DisposicionImagenes(),
+                ),
+              );
+            },
+          ),
+        ),
+
+        Ink(
+          color: const Color.fromARGB(255, 192, 181, 24),
+          child: ListTile(
+            title: const Text(
+              "Ejercicio 8",
+              style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+            ),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) =>
+                      const FilasColumnasAnidadas(),
+                ),
+              );
+            },
+          ),
+        ),
+
+        Ink(
+          color: const Color.fromARGB(255, 177, 46, 46),
+          child: ListTile(
+            title: const Text(
+              "Ejercicio 9",
+              style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+            ),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => const Reto(),
                 ),
               );
             },
