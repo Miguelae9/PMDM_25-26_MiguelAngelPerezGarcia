@@ -9,6 +9,7 @@ import 'package:relacion_ejercicios_tema1/screens/ejercicio_6.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_7.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_8.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_9.dart';
+import 'package:relacion_ejercicios_tema1/screens/ejercicio_11.dart';
 import 'package:relacion_ejercicios_tema1/screens/home_screen.dart';
 
 // La clase representa el contenido del menú lateral (Drawer)
@@ -217,6 +218,24 @@ class MenuLateral extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (BuildContext context) => const Reto(),
+                ),
+              );
+            },
+          ),
+        ),
+
+        Ink(
+          color: const Color.fromARGB(255, 177, 46, 46),
+          child: ListTile(
+            title: const Text(
+              "Ejercicio 11",
+              style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+            ),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => const Instagram(),
                 ),
               );
             },
