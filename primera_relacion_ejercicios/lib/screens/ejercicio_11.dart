@@ -36,23 +36,81 @@ class Instagram extends StatelessWidget {
               ClipOval(
                 child: Image.asset(
                   "assets/imgs/churumbel_perfil.jpg",
-                  width: 150,
-                  height: 150,
+                  width: 130,
+                  height: 130,
                 ),
               ),
-              Column(children: [Text("500"), Text("Posts")]),
-              Column(children: [Text("10000 M"), Text("Followers")]),
-              Column(children: [Text("2"), Text("Following")]),
+              Column(
+                children: [
+                  Text("500", style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text("Posts"),
+                ],
+              ),
+              Column(
+                children: [
+                  Text(
+                    "1000000 M",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Text("Followers"),
+                ],
+              ),
+              Column(
+                children: [
+                  Text("2", style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text("Following"),
+                ],
+              ),
             ],
           ),
 
-          SizedBox(height: 10,),
+          SizedBox(height: 10),
           Row(
             children: [
-              SizedBox(width: 16,),
+              SizedBox(width: 16),
               Text(
                 "D la trinida par mundo😈\nlas reguetona yamarme🔥\ner k kiera argo🙏\nk me buske🔫\ngemelos xivatos🤫",
                 style: GoogleFonts.rocknRollOne(),
+              ),
+            ],
+          ),
+
+          SizedBox(height: 10),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Text("Following"),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Text("Message"),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Text("Email"),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Image.asset("assets/imgs/flecha_abajo.png")
               ),
             ],
           ),
