@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio10.dart';
+import 'package:relacion_ejercicios_tema1/screens/ejercicio_11.dart';
 
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_4.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_5.dart';
@@ -10,7 +11,6 @@ import 'package:relacion_ejercicios_tema1/screens/ejercicio_6.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_7.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_8.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_9.dart';
-import 'package:relacion_ejercicios_tema1/screens/ejercicio_11.dart';
 import 'package:relacion_ejercicios_tema1/screens/home_screen.dart';
 
 // La clase representa el contenido del menú lateral (Drawer)
@@ -244,7 +244,8 @@ class MenuLateral extends StatelessWidget {
         ),
 
         Ink(
-          color: const Color.fromARGB(255, 177, 46, 46),
+          color: const Color.fromARGB(255, 255, 247, 247),
+
           child: ListTile(
             title: const Text(
               "Ejercicio 11",
