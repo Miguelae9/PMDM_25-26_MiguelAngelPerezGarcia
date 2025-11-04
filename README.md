@@ -25,7 +25,7 @@ Primera aplicación creada con **Flutter**, donde trabajo conceptos básicos com
 - Navegación mediante **Drawer (menú lateral)**
 - Diseño simple pero funcional con **colores, imágenes y organización de layouts**
 
-📦 **Última versión:** [`v1.1.0`](https://github.com/tu_usuario/tu_repo/releases/latest)  
+📦 **Última versión:** [`v1.2.0`](https://github.com/tu_usuario/tu_repo/releases/latest)  
 *(Incluye el APK compilado en modo release para instalación en Android)*
 
 ---
