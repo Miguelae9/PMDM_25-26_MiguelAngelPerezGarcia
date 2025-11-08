@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio10.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_11.dart';
+import 'package:relacion_ejercicios_tema1/screens/ejercicio_13.dart';
 
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_4.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_5.dart';
@@ -276,6 +277,25 @@ class MenuLateral extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (BuildContext context) => const RandomColors(),
+                ),
+              );
+            },
+          ),
+        ),
+
+                Ink(
+          color: const Color.fromARGB(255, 0, 0, 0),
+
+          child: ListTile(
+            title: const Text(
+              "Ejercicio 13",
+              style: TextStyle(color: Color.fromARGB(255, 167, 255, 3)),
+            ),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => const JuegoImagenes(),
                 ),
               );
             },
