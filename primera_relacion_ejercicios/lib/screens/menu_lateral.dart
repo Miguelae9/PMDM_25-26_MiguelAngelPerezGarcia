@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:relacion_ejercicios_tema1/screens/ejercicio10.dart';
+import 'package:relacion_ejercicios_tema1/screens/ejercicio_10.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_11.dart';
 import 'package:relacion_ejercicios_tema1/screens/ejercicio_13.dart';
 
@@ -53,10 +53,12 @@ class MenuLateral extends StatelessWidget {
             title: const Text("Inicio"),
             onTap: () {
               Navigator.of(context).pop(); // Cierra el menú lateral
+
+              // Navega correctamente a la pantalla inicial (HomeScreen),
+              // NO debe navegar a MyApp porque MyApp es el MaterialApp raíz.
               Navigator.of(context).push(
-                // Navega a la nueva pantalla
                 MaterialPageRoute(
-                  builder: (BuildContext context) => const MyApp(),
+                  builder: (BuildContext context) => const HomeScreen(),
                 ),
               );
             },
@@ -283,7 +285,7 @@ class MenuLateral extends StatelessWidget {
           ),
         ),
 
-                Ink(
+        Ink(
           color: const Color.fromARGB(255, 0, 0, 0),
 
           child: ListTile(

@@ -13,9 +13,7 @@ class TextoDesbordado extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           "Texto Desbordado",
-          style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
         ),
-        backgroundColor: const Color.fromARGB(255, 206, 122, 74),
       ),
       drawer: const Drawer(
         backgroundColor: Color.fromARGB(255, 16, 1, 100),

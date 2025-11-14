@@ -11,7 +11,7 @@ class TresFotosColumnas extends StatelessWidget {
       appBar: AppBar(
         // Barra superior
         title: Text("Tres Imágenes en Miniatura en Columa"), // Título
-        backgroundColor: const Color.fromARGB(255, 241, 175, 75),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       ),
       drawer: const Drawer(
         backgroundColor:  Color.fromARGB(255, 16, 1, 100),

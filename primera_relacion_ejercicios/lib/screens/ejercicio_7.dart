@@ -11,9 +11,7 @@ class DisposicionImagenes extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           "Disposición Imágenes",
-          style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
         ),
-        backgroundColor: const Color.fromARGB(255, 127, 170, 93),
       ),
       drawer: const Drawer(
         backgroundColor: Color.fromARGB(255, 16, 1, 100),

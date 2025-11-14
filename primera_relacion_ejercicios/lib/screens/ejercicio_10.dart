@@ -36,7 +36,6 @@ class _ContadorState extends State<Contador> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Ejercicio 10: Contador"),
-        backgroundColor: const Color.fromARGB(255, 129, 230, 255),
       ),
 
       drawer: Drawer(

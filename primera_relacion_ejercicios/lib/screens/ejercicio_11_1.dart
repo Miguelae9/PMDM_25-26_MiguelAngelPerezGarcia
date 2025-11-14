@@ -12,16 +12,18 @@ class Ejercicio11AppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: const Color.fromARGB(255, 255, 247, 247),
+      foregroundColor: Colors.black,
       title: Row(
         children: [
           // Nombre del usuario
-          const Text("N'Golo Kanté "),
+          const Text("N'Golo Kanté ", style: TextStyle(color: Colors.black)),
+
           // Icono de verificado
           Image.asset("assets/imgs/verificado.png", width: 20, height: 20),
           // Buscado en internet. Sirve para empujar a los elementos a los extremos
           const Spacer(),
           // Menú de tres puntos
-          const Text("⋯"),
+          const Text("⋯", style: TextStyle(color: Colors.black)),
         ],
       ),
     );

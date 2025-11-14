@@ -93,6 +93,7 @@ class _JuegoImagenesState extends State<JuegoImagenes> {
           "Juego imágenes",
           style: TextStyle(color: Color.fromARGB(255, 167, 255, 3)),
         ),
+        foregroundColor: Color.fromARGB(255, 167, 255, 3),
         backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       ),
       drawer: Drawer(

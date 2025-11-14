@@ -10,7 +10,6 @@ class CincoIconosFila extends StatelessWidget {
       appBar: AppBar(
         // Barra superior
         title: Text("5 Iconos en Fila"), // Título de la App Bar
-        backgroundColor: const Color.fromARGB(255, 241, 78, 119),
       ),
       drawer: const Drawer(
         backgroundColor:  Color.fromARGB(255, 16, 1, 100),

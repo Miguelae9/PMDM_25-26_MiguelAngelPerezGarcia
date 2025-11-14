@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:relacion_ejercicios_tema1/screens/menu_lateral.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key}); // Clase raíz de la aplicación
 
   @override
   Widget build(BuildContext context) {
@@ -10,28 +10,56 @@ class MyApp extends StatelessWidget {
       // Widget principal que define la configuración de la aplicación
       debugShowCheckedModeBanner:
           false, // Oculta la etiqueta de "Debug" en la esquina
-      title: 'Relación de Ejercicios Tema 1', // Título
-      home: Scaffold(
-        // Proporciona la estructura base de la página (AppBar, body, y Drawer)
-        backgroundColor: const Color.fromARGB(255, 253, 159, 245),
-        appBar: AppBar(
-          title: Text("Relación de Ejercicios"), // Título de la App Bar
-          backgroundColor: const Color.fromARGB(186, 209, 116, 252),
+      title: 'Relación de Ejercicios', // Título
+      // Tema general que se aplicará a todas las pantallas
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color.fromARGB(255, 61, 144, 253),
+
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color.fromARGB(255, 0, 0, 0),
+          foregroundColor: Color.fromARGB(255, 201, 187, 61),
+          centerTitle: true,
         ),
-        drawer: Drawer(
-          // Menú lateral (hamburguesa) que se desliza desde el borde
-          backgroundColor: const Color.fromARGB(255, 16, 1, 100),
-          child:
-              MenuLateral(), // Usa el widget importado para construir el contenido del menú
-        ),
-        body: Center(
-          // Centra el contenido principal
-          child: Text(
-            // Muestra un texto simple en el centro de la pantalla
-            '¡Abre el menú lateral para navegar!',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Color.fromARGB(255, 201, 187, 61),
           ),
+          bodyMedium: TextStyle(fontSize: 18, color: Color.fromARGB(255, 0, 0, 0)),
         ),
+      ),
+
+      // Pantalla inicial
+      home: const HomeScreen(),
+    );
+  }
+}
+
+// Pantalla principal de la aplicación
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // Proporciona la estructura base de la página (AppBar, body y Drawer)
+      appBar: AppBar(
+        title: Text(
+          "Relación de Ejercicios", // Título de la App Bar
+        ),
+      ),
+
+      drawer: Drawer(
+        // Menú lateral (hamburguesa) que se desliza desde el borde
+        child:
+            const MenuLateral(), // Usa el widget importado para construir el menú
+      ),
+
+      body: Center(
+        // Centra el contenido principal
+        child: Text('¡Abre el menú lateral para navegar!'),
       ),
     );
   }

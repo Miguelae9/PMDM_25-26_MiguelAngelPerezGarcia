@@ -103,103 +103,101 @@ class _RandomColors extends State<RandomColors> {
       juegoTerminado = true;
     }
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Reto"),
-          backgroundColor: const Color.fromARGB(255, 184, 184, 184),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Reto",
         ),
-        drawer: Drawer(
-          backgroundColor: const Color.fromARGB(255, 16, 1, 100),
-          child: const MenuLateral(),
-        ),
-        backgroundColor: const Color.fromARGB(255, 219, 219, 219),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            // Puntos actuales
-            Text(
-              'Puntos: $points',
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-            ),
+      ),
+      backgroundColor: const Color.fromARGB(255, 250, 205, 71),
+      drawer: Drawer(
+        // Menú lateral (hamburguesa)
+        child: const MenuLateral(),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          // Puntos actuales
+          Text(
+            'Puntos: $points',
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+          ),
 
-            // Tiempo restante
-            Text(
-              'Tiempo: $segundosRestantes',
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-            ),
+          // Tiempo restante
+          Text(
+            'Tiempo: $segundosRestantes',
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          ),
 
-            // Indicador del modo inverso
-            if (modoInverso)
-              const Text(
-                '¡Inverso!',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                  color: Colors.red,
-                ),
-              ),
-
-            // Mensaje de victoria o derrota
-            Text(
-              mensaje,
-              style: const TextStyle(
+          // Indicador del modo inverso
+          if (modoInverso)
+            const Text(
+              '¡Inverso!',
+              style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 28,
-                color: Colors.black,
+                fontSize: 24,
+                color: Colors.red,
               ),
             ),
 
-            // Zona central del juego (color + texto)
-            Center(
-              child: GestureDetector(
-                onTap: () {
-                  if (!juegoTerminado) {
-                    onGiftTap(randomName, randomColor);
-                  }
-                },
-                child: Column(
-                  children: [
-                    // Cuadro de color
-                    Container(width: 120, color: randomColor, height: 120),
-                    // Texto del color
-                    Text(
-                      randomName,
-                      style: TextStyle(
-                        color: randomColor,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                      ),
+          // Mensaje de victoria o derrota
+          Text(
+            mensaje,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 28,
+              color: Colors.black,
+            ),
+          ),
+
+          // Zona central del juego (color + texto)
+          Center(
+            child: GestureDetector(
+              onTap: () {
+                if (!juegoTerminado) {
+                  onGiftTap(randomName, randomColor);
+                }
+              },
+              child: Column(
+                children: [
+                  // Cuadro de color
+                  Container(width: 120, color: randomColor, height: 120),
+                  // Texto del color
+                  Text(
+                    randomName,
+                    style: TextStyle(
+                      color: randomColor,
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
                     ),
-                    // Botón de reinicio si el juego terminó
-                    if (juegoTerminado)
-                      ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            // Reinicia todos los valores del juego
-                            points = 0;
-                            _tickMs = 1000;
-                            estadoJuego = '';
+                  ),
+                  // Botón de reinicio si el juego terminó
+                  if (juegoTerminado)
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          // Reinicia todos los valores del juego
+                          points = 0;
+                          _tickMs = 1000;
+                          estadoJuego = '';
 
-                            segundosRestantes = 60;
-                            rachaAciertos = 0;
-                            modoInverso = false;
+                          segundosRestantes = 60;
+                          rachaAciertos = 0;
+                          modoInverso = false;
 
-                            iniciarCuentaAtras();
-                            getRandomColor();
-                            getRandomName();
-                            timer();
-                          });
-                        },
-                        child: const Text('Volver a jugar'),
-                      ),
-                  ],
-                ),
+                          iniciarCuentaAtras();
+                          getRandomColor();
+                          getRandomName();
+                          timer();
+                        });
+                      },
+                      child: const Text('Volver a jugar'),
+                    ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

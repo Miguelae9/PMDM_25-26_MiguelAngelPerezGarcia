@@ -31,7 +31,7 @@ class InfomacionPersonal extends StatelessWidget {
           children: [
             // Lista de widgets: nombre y URL
             Text(
-              'Migue Ángel Pérez García',
+              'Miguel Ángel Pérez García',
               style: GoogleFonts.aboreto(),
             ), // Muestra el nombre con otra fuente
             // Dirección del repositorio (con otro estilo)

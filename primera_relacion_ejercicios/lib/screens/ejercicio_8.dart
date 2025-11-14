@@ -10,7 +10,6 @@ class FilasColumnasAnidadas extends StatelessWidget {
       // Barra superior de la aplicación
       appBar: AppBar(
         title: const Text("Filas y Columnas Anidadas"),
-        backgroundColor: const Color.fromARGB(255, 192, 181, 24),
       ),
 
       // Menú lateral (Drawer)
