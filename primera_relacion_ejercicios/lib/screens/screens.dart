@@ -1,0 +1,15 @@
+export 'home_screen.dart';
+
+export 'ejercicio_1.dart';
+export 'ejercicio_2.dart';
+export 'ejercicio_3.dart';
+export 'ejercicio_4.dart';
+export 'ejercicio_5.dart';
+export 'ejercicio_6.dart';
+export 'ejercicio_7.dart';
+export 'ejercicio_8.dart';
+export 'ejercicio_9.dart';
+export 'ejercicio_10.dart';
+export 'ejercicio_11.dart';
+export 'ejercicio_12.dart';
+export 'ejercicio_13.dart';

@@ -23,7 +23,7 @@ class _RandomColors extends State<RandomColors> {
   // Temporizador principal que cambia color y texto
   Timer? _timer;
   int _tickMs = 1000; // velocidad de cambio (milisegundos)
-  String estadoJuego = ""; // "ganar" o "perder"
+  String estadoJuego = ""; // "", "ganar" o "perder"
 
   // Variables para el contador de tiempo
   int segundosRestantes = 60;
@@ -41,6 +41,15 @@ class _RandomColors extends State<RandomColors> {
   // Modo inverso: cuando está activo, hay que fallar para acertar
   bool modoInverso = false;
 
+  // Guardamos el último índice usado para color y nombre
+  // para evitar repetir el mismo dos veces seguidas.
+  int? _ultimoIndiceColor;
+  int? _ultimoIndiceNombre;
+
+  // Controla si ya se ha respondido a la combinación actual.
+  // true -> se puede pulsar; false -> ignoramos taps hasta el siguiente cambio.
+  bool puedePulsar = true;
+
   @override
   void initState() {
     super.initState();
@@ -53,9 +62,25 @@ class _RandomColors extends State<RandomColors> {
   // Temporizador que cambia color y texto cada cierto tiempo
   void timer() {
     _timer?.cancel();
+
+    // si el juego ya terminó, no creamos más timers
+    if (estadoJuego == 'ganar' || estadoJuego == 'perder') {
+      return;
+    }
+
     _timer = Timer.periodic(Duration(milliseconds: _tickMs), (timer) {
+      // si el juego termina mientras el timer está vivo, lo cancelamos
+      if (estadoJuego == 'ganar' || estadoJuego == 'perder') {
+        timer.cancel();
+        return;
+      }
+
       getRandomColor();
       getRandomName();
+
+      // Al generar una combinación nueva, volvemos a permitir un tap
+      puedePulsar = true;
+
       setState(() {});
     });
   }
@@ -72,15 +97,14 @@ class _RandomColors extends State<RandomColors> {
         return;
       }
 
-      // cada segundo resta 1 al contador
       if (segundosRestantes > 0) {
         setState(() {
           segundosRestantes--;
         });
       }
 
-      // si el tiempo llega a 0, se pierde
-      if (segundosRestantes <= 0) {
+      // si el tiempo llega a 0, se pierde (solo si aún no había estado)
+      if (segundosRestantes <= 0 && estadoJuego == '') {
         estadoJuego = 'perder';
         _timer?.cancel();
         temporizador.cancel();
@@ -105,7 +129,7 @@ class _RandomColors extends State<RandomColors> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Reto",
         ),
       ),
@@ -175,8 +199,8 @@ class _RandomColors extends State<RandomColors> {
                   if (juegoTerminado)
                     ElevatedButton(
                       onPressed: () {
+                        // Reinicia todos los valores del juego
                         setState(() {
-                          // Reinicia todos los valores del juego
                           points = 0;
                           _tickMs = 1000;
                           estadoJuego = '';
@@ -185,11 +209,14 @@ class _RandomColors extends State<RandomColors> {
                           rachaAciertos = 0;
                           modoInverso = false;
 
-                          iniciarCuentaAtras();
-                          getRandomColor();
-                          getRandomName();
-                          timer();
+                          // También reiniciamos el bloqueo de pulsación
+                          puedePulsar = true;
                         });
+
+                        iniciarCuentaAtras();
+                        getRandomColor();
+                        getRandomName();
+                        timer();
                       },
                       child: const Text('Volver a jugar'),
                     ),
@@ -202,18 +229,32 @@ class _RandomColors extends State<RandomColors> {
     );
   }
 
-  // Selecciona un color aleatorio de la lista
+  // Selecciona un color aleatorio de la lista evitando repetir el último
   void getRandomColor() {
     Random random = Random();
-    int randomNumber = random.nextInt(3);
-    randomColor = colorHex[randomNumber];
+    int nuevoIndice;
+
+    // si hay más de un color, repetimos hasta que no sea el mismo índice que antes
+    do {
+      nuevoIndice = random.nextInt(colorHex.length);
+    } while (colorHex.length > 1 && nuevoIndice == _ultimoIndiceColor);
+
+    _ultimoIndiceColor = nuevoIndice;
+    randomColor = colorHex[nuevoIndice];
   }
 
-  // Selecciona un nombre de color aleatorio de la lista
+  // Selecciona un nombre de color aleatorio evitando repetir el último
   void getRandomName() {
     Random random = Random();
-    int randomNumber = random.nextInt(3);
-    randomName = colorNames[randomNumber];
+    int nuevoIndice;
+
+    // si hay más de un nombre, repetimos hasta que no sea el mismo índice que antes
+    do {
+      nuevoIndice = random.nextInt(colorNames.length);
+    } while (colorNames.length > 1 && nuevoIndice == _ultimoIndiceNombre);
+
+    _ultimoIndiceNombre = nuevoIndice;
+    randomName = colorNames[nuevoIndice];
   }
 
   // Convierte un color en su nombre equivalente
@@ -229,6 +270,19 @@ class _RandomColors extends State<RandomColors> {
 
   // Lógica principal al pulsar el color
   void onGiftTap(String name, Color color) {
+    // si el juego ya terminó por cualquier motivo, no hacemos nada
+    if (estadoJuego == 'ganar' || estadoJuego == 'perder') {
+      return;
+    }
+
+    // Si ya hemos respondido a esta combinación, ignoramos el tap
+    if (!puedePulsar) {
+      return;
+    }
+
+    // En cuanto procesamos este tap, bloqueamos hasta el siguiente cambio de color/texto
+    puedePulsar = false;
+
     // Compara el texto con el color mostrado
     var colorToString = hexToStringConverter(color);
 
@@ -242,7 +296,6 @@ class _RandomColors extends State<RandomColors> {
       esAcierto = coincide;
     }
 
-    // Si acierta
     if (esAcierto) {
       points++;
       rachaAciertos++;
@@ -251,6 +304,15 @@ class _RandomColors extends State<RandomColors> {
       if (rachaAciertos == 3) {
         segundosRestantes += 15;
         rachaAciertos = 0;
+      }
+
+      // Gana al llegar a 10 puntos
+      if (points >= 10) {
+        estadoJuego = 'ganar';
+        _timer?.cancel();
+        _temporizadorCuentaAtras?.cancel();
+        setState(() {});
+        return; // importante: no seguimos cambiando velocidad ni nada
       }
 
       // Ajusta velocidad según puntos
@@ -283,14 +345,9 @@ class _RandomColors extends State<RandomColors> {
         estadoJuego = 'perder';
         _timer?.cancel();
         _temporizadorCuentaAtras?.cancel();
+        setState(() {});
+        return;
       }
-    }
-
-    // Gana al llegar a 10 puntos
-    if (points >= 10) {
-      estadoJuego = 'ganar';
-      _timer?.cancel();
-      _temporizadorCuentaAtras?.cancel();
     }
 
     // De vez en cuando activa o desactiva modo inverso (probabilidad 1/8)

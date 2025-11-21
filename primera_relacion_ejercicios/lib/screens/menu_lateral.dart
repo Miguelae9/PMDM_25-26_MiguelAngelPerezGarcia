@@ -1,43 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:relacion_ejercicios_tema1/screens/ejercicio_10.dart';
-import 'package:relacion_ejercicios_tema1/screens/ejercicio_11.dart';
-import 'package:relacion_ejercicios_tema1/screens/ejercicio_13.dart';
 
-import 'package:relacion_ejercicios_tema1/screens/ejercicio_4.dart';
-import 'package:relacion_ejercicios_tema1/screens/ejercicio_5.dart';
-import 'package:relacion_ejercicios_tema1/screens/ejercicio_2.dart';
-import 'package:relacion_ejercicios_tema1/screens/ejercicio_3.dart';
-import 'package:relacion_ejercicios_tema1/screens/ejercicio_1.dart';
-import 'package:relacion_ejercicios_tema1/screens/ejercicio_6.dart';
-import 'package:relacion_ejercicios_tema1/screens/ejercicio_7.dart';
-import 'package:relacion_ejercicios_tema1/screens/ejercicio_8.dart';
-import 'package:relacion_ejercicios_tema1/screens/ejercicio_9.dart';
-import 'package:relacion_ejercicios_tema1/screens/home_screen.dart';
-import 'package:relacion_ejercicios_tema1/screens/ejercicio_12.dart';
-
-// La clase representa el contenido del menú lateral (Drawer)
 class MenuLateral extends StatelessWidget {
   const MenuLateral({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // ListView permite que el menú se pueda desplazar si hay muchos elementos
     return ListView(
       padding: EdgeInsets.zero,
       children: <Widget>[
         UserAccountsDrawerHeader(
-          // Encabezado del menú con información de usuario
-          accountName: Text(
+          accountName: const Text(
             "Miguel Ángel Pérez García",
             style: TextStyle(color: Color.fromARGB(255, 255, 230, 2)),
           ),
-          accountEmail: Text(
+          accountEmail: const Text(
             "Relación de Ejercicios Tema 1",
             style: TextStyle(color: Color.fromARGB(255, 255, 230, 2)),
           ),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
-              // Imagen de fondo cargada desde una URL
               image: NetworkImage(
                 "https://images.stockcake.com/public/3/d/5/3d5bf737-41c7-4776-81cd-01411801add4_large/synthwave-sunset-city-stockcake.jpg",
               ),
@@ -46,44 +27,33 @@ class MenuLateral extends StatelessWidget {
           ),
         ),
 
+        // INICIO
         Ink(
-          // Widget para aplicar color de fondo y efectos táctiles
-          color: const Color.fromARGB(255, 223, 62, 245),
+          color: const Color.fromARGB(255, 247, 114, 180),
           child: ListTile(
             title: const Text("Inicio"),
             onTap: () {
-              Navigator.of(context).pop(); // Cierra el menú lateral
-
-              // Navega correctamente a la pantalla inicial (HomeScreen),
-              // NO debe navegar a MyApp porque MyApp es el MaterialApp raíz.
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => const HomeScreen(),
-                ),
-              );
+              Navigator.of(context).pop();
+              Navigator.pushReplacementNamed(context, '/home');
             },
           ),
         ),
 
+        // EJ1
         Ink(
-          // Widget para aplicar color de fondo y efectos táctiles
-          color: const Color.fromARGB(255, 139, 191, 240),
+          color: const Color.fromARGB(255, 247, 114, 180),
           child: ListTile(
             title: const Text("Ejercicio 1"),
             onTap: () {
-              Navigator.of(context).pop(); // Cierra el menú lateral
-              Navigator.of(context).push(
-                // Navega a la nueva pantalla
-                MaterialPageRoute(
-                  builder: (BuildContext context) => const InfomacionPersonal(),
-                ),
-              );
+              Navigator.of(context).pop();
+              Navigator.pushReplacementNamed(context, '/ej1');
             },
           ),
         ),
 
+        // EJ2
         Ink(
-          color: const Color.fromARGB(255, 139, 240, 210),
+          color: const Color.fromARGB(255, 247, 114, 180),
           child: ListTile(
             title: const Text(
               "Ejercicio 2",
@@ -91,17 +61,14 @@ class MenuLateral extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => const FotoNombre(),
-                ),
-              );
+              Navigator.pushReplacementNamed(context, '/ej2');
             },
           ),
         ),
 
+        // EJ3
         Ink(
-          color: const Color.fromARGB(255, 243, 187, 82),
+          color: const Color.fromARGB(255, 247, 114, 180),
           child: ListTile(
             title: const Text(
               "Ejercicio 3",
@@ -109,17 +76,14 @@ class MenuLateral extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => const TresFotosColumnas(),
-                ),
-              );
+              Navigator.pushReplacementNamed(context, '/ej3');
             },
           ),
         ),
 
+        // EJ4
         Ink(
-          color: const Color.fromARGB(255, 243, 82, 157),
+          color: const Color.fromARGB(255, 247, 114, 180),
           child: ListTile(
             title: const Text(
               "Ejercicio 4",
@@ -127,36 +91,26 @@ class MenuLateral extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => const CincoIconosFila(),
-                ),
-              );
+              Navigator.pushReplacementNamed(context, '/ej4');
             },
           ),
         ),
 
+        // EJ5
         Ink(
-          color: const Color.fromARGB(255, 0, 0, 0),
+          color: const Color.fromARGB(255, 247, 114, 180),
           child: ListTile(
-            title: const Text(
-              "Ejercicio 5",
-              style: TextStyle(color: Color.fromARGB(255, 204, 169, 55)),
-            ),
+            title: const Text("Ejercicio 5"),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) =>
-                      const CincoImagenesColumna(),
-                ),
-              );
+              Navigator.pushReplacementNamed(context, '/ej5');
             },
           ),
         ),
 
+        // EJ6
         Ink(
-          color: const Color.fromARGB(255, 230, 145, 96),
+          color: const Color.fromARGB(255, 247, 114, 180),
           child: ListTile(
             title: const Text(
               "Ejercicio 6",
@@ -164,17 +118,14 @@ class MenuLateral extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => const TextoDesbordado(),
-                ),
-              );
+              Navigator.pushReplacementNamed(context, '/ej6');
             },
           ),
         ),
 
+        // EJ7
         Ink(
-          color: const Color.fromARGB(255, 150, 196, 98),
+          color: const Color.fromARGB(255, 247, 114, 180),
           child: ListTile(
             title: const Text(
               "Ejercicio 7",
@@ -182,18 +133,14 @@ class MenuLateral extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) =>
-                      const DisposicionImagenes(),
-                ),
-              );
+              Navigator.pushReplacementNamed(context, '/ej7');
             },
           ),
         ),
 
+        // EJ8
         Ink(
-          color: const Color.fromARGB(255, 192, 181, 24),
+          color: const Color.fromARGB(255, 247, 114, 180),
           child: ListTile(
             title: const Text(
               "Ejercicio 8",
@@ -201,18 +148,14 @@ class MenuLateral extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) =>
-                      const FilasColumnasAnidadas(),
-                ),
-              );
+              Navigator.pushReplacementNamed(context, '/ej8');
             },
           ),
         ),
 
+        // EJ9
         Ink(
-          color: const Color.fromARGB(255, 177, 46, 46),
+          color: const Color.fromARGB(255, 247, 114, 180),
           child: ListTile(
             title: const Text(
               "Ejercicio 9",
@@ -220,17 +163,14 @@ class MenuLateral extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => const Reto(),
-                ),
-              );
+              Navigator.pushReplacementNamed(context, '/ej9');
             },
           ),
         ),
 
+        // EJ10
         Ink(
-          color: const Color.fromARGB(255, 129, 230, 255),
+          color: const Color.fromARGB(255, 247, 114, 180),
           child: ListTile(
             title: const Text(
               "Ejercicio 10",
@@ -238,18 +178,14 @@ class MenuLateral extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => const Contador(),
-                ),
-              );
+              Navigator.pushReplacementNamed(context, '/ej10');
             },
           ),
         ),
 
+        // EJ11
         Ink(
-          color: const Color.fromARGB(255, 255, 247, 247),
-
+          color: const Color.fromARGB(255, 247, 114, 180),
           child: ListTile(
             title: const Text(
               "Ejercicio 11",
@@ -257,18 +193,14 @@ class MenuLateral extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => const Instagram(),
-                ),
-              );
+              Navigator.pushReplacementNamed(context, '/ej11');
             },
           ),
         ),
 
+        // EJ12
         Ink(
-          color: const Color.fromARGB(255, 184, 184, 184),
-
+          color: const Color.fromARGB(255, 247, 114, 180),
           child: ListTile(
             title: const Text(
               "Ejercicio 12",
@@ -276,30 +208,19 @@ class MenuLateral extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => const RandomColors(),
-                ),
-              );
+              Navigator.pushReplacementNamed(context, '/ej12');
             },
           ),
         ),
 
+        // EJ13
         Ink(
-          color: const Color.fromARGB(255, 0, 0, 0),
-
+          color: const Color.fromARGB(255, 247, 114, 180),
           child: ListTile(
-            title: const Text(
-              "Ejercicio 13",
-              style: TextStyle(color: Color.fromARGB(255, 167, 255, 3)),
-            ),
+            title: const Text("Ejercicio 13"),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => const JuegoImagenes(),
-                ),
-              );
+              Navigator.pushReplacementNamed(context, '/ej13');
             },
           ),
         ),

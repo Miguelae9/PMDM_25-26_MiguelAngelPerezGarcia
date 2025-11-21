@@ -59,7 +59,7 @@ class _JuegoImagenesState extends State<JuegoImagenes> {
     });
 
     // temporizador de cada ronda (700 ms)
-    _timerRonda = Timer(const Duration(milliseconds: 700), () {
+    _timerRonda = Timer(const Duration(milliseconds: 2000), () {
       if (!haSidoPulsada) {
         setState(() {
           puntos -= 2; // no se pulsó ninguna imagen a tiempo
