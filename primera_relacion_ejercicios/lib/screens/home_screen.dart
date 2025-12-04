@@ -53,6 +53,7 @@ class MyApp extends StatelessWidget {
         '/ej11': (context) => const Instagram(),
         '/ej12': (context) => const RandomColors(),
         '/ej13': (context) => const JuegoImagenes(),
+        '/ej14': (context) => const AdividarNumero(),
       },
     );
   }
