@@ -225,7 +225,7 @@ class MenuLateral extends StatelessWidget {
           ),
         ),
 
-        // EJ14
+         // EJ14
         Ink(
           color: const Color.fromARGB(255, 247, 114, 180),
           child: ListTile(
@@ -233,6 +233,18 @@ class MenuLateral extends StatelessWidget {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.pushReplacementNamed(context, '/ej14');
+            },
+          ),
+        ),
+
+         // EJ15
+        Ink(
+          color: const Color.fromARGB(255, 247, 114, 180),
+          child: ListTile(
+            title: const Text("Ejercicio 15"),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.pushReplacementNamed(context, '/ej15');
             },
           ),
         ),

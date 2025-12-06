@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:math';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:relacion_ejercicios_tema1/screens/menu_lateral.dart';
 
@@ -33,7 +34,22 @@ class _JuegoImagenesState extends State<JuegoImagenes> {
     posicionesX = _crearListaInicial(100);
     posicionesY = _crearListaInicial(200);
 
+    cargarPuntos();
     iniciarNuevaRonda(); // empieza el juego
+  }
+
+  // Cargar puntos desde shared_preferences
+  void cargarPuntos() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      puntos = prefs.getInt("puntos") ?? 0;
+    });
+  }
+
+    // Guardar puntos en shared_preferences
+  void guardarPuntos() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setInt("puntos", puntos);
   }
 
   // función auxiliar que crea una lista con valores repetidos
@@ -64,6 +80,7 @@ class _JuegoImagenesState extends State<JuegoImagenes> {
         setState(() {
           puntos -= 2; // no se pulsó ninguna imagen a tiempo
         });
+        guardarPuntos();
       }
       iniciarNuevaRonda(); // siguiente ronda
     });
@@ -82,6 +99,7 @@ class _JuegoImagenesState extends State<JuegoImagenes> {
       puntos++;
     });
 
+    guardarPuntos();
     iniciarNuevaRonda();
   }
 

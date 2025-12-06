@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:relacion_ejercicios_tema1/screens/ejercicio_15.dart';
 import 'package:relacion_ejercicios_tema1/screens/menu_lateral.dart';
 import 'package:relacion_ejercicios_tema1/screens/screens.dart';
 import 'package:relacion_ejercicios_tema1/screens/splash_screen.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
         '/ej12': (context) => const RandomColors(),
         '/ej13': (context) => const JuegoImagenes(),
         '/ej14': (context) => const AdividarNumero(),
+        '/ej15': (context) => const Formulario(),
       },
     );
   }
